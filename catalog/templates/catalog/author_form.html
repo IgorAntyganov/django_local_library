@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+{% if 'Work with authors' in perms.catalog %}
+<form action="" method="post">
+    {% csrf_token %}
+    <table>
+    {{ form.as_table }}
+    </table>
+    <input type="submit" value="Submit" />
+    
+</form>
+{% else %}
+<a href="{% url 'login' %}">For watching this page you must have correct permissions</a>
+{% endif %}
+{% endblock %}
